@@ -1,0 +1,87 @@
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title slot="start">
+      Material_Mindfulness
+    </ion-title>
+    <div [routerLink]="['/profile']">
+      <p class="firstname">{{this.userData}}</p>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-card style="padding: 5px;">
+    <ion-list (click)="takePictureBase64()">
+      <ion-icon name="image-outline"></ion-icon>
+      <p>Add</p>
+    </ion-list>
+    <ion-input placeholder="What's in your mind " [(ngModel)]="postData.description"></ion-input>
+
+    <ion-list (click)="submitPost()">
+      <ion-icon name="send"></ion-icon>
+      <p>Post</p>
+    </ion-list>
+  </ion-card>
+
+
+
+  <ion-list *ngFor="let p of allPost ; let i=index">
+    <ion-item lines="none">
+      <ion-avatar slot="start">
+        <p style="text-transform: uppercase;">{{getShortName(p.first_name)}}</p>
+      </ion-avatar>
+      <div>
+        <p>{{p.first_name}} {{p.last_name}}</p>
+        <span>Posted on {{p.p_date}}</span>  <br>
+        <span style="font-size: 15px;">{{p.description}}</span>
+      </div>
+      <ion-icon slot="end" name="ellipsis-vertical"></ion-icon>
+    </ion-item>
+
+    <!-- //vedio -->
+    <!-- <video loop autoplay width="100%">
+      <source src={{p.v_path1}} type="video/mp4">
+      <source src={{p.v_path2}} type="video/ogg">
+      Your browser does not support the video tag.
+    </video> -->
+
+    <img id="{{'x'+i}}" src="{{p.video}}" alt="">
+
+    <!-- //comments -->
+    <ion-item lines="none">
+      <ion-row>
+        <ion-col size="4">
+          <ion-icon name="heart"></ion-icon>
+        </ion-col>
+        <ion-col size="4" (click)="presentModal(p)">
+          <ion-icon name="chatbubble-ellipses" ></ion-icon>
+        </ion-col>
+        <ion-col size="4" class="border_none">
+          <ion-icon name="download"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+    <!-- // filter slides -->
+  
+  
+
+    <!-- // filter slides -->
+    <ion-accordion-group>
+      <ion-accordion toggleIcon="none">
+        <ion-item slot="header" color="none">
+          <ion-label class="filter_title">Apply Filter:</ion-label>
+        </ion-item>
+        <div class="container" slot="content">
+          <!-- <p class="filter_title">Apply Filter:</p> -->
+          <ion-slides [options]="slideOpts">
+            <ion-slide *ngFor="let f of filters">
+              <p (click)="change_filter(f , p, i)">{{f.name}}</p>
+            </ion-slide>
+          </ion-slides>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+</ion-list>
+</ion-content>

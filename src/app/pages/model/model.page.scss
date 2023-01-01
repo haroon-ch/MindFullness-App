@@ -1,0 +1,56 @@
+
+  .buttonC{
+    color: white;
+    font-size: 17px;
+    text-transform: none;
+    padding-top: 4px;
+  }
+  .likeicon{
+    font-size: 26px;
+    padding-top: 7px;
+  }
+
+  // chating css
+  
+.message {
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 4px;
+  white-space: pre-wrap;
+
+
+}
+.other-message {
+  background: var( --ion-color-primary);
+  color: #fff;
+}
+
+.my-message {
+  background: var( --ion-color-primary);
+  color: #fff;
+}
+
+.time {
+  color: #dfdfdf;
+  float: right;
+  font-size: small;
+}
+
+.message-input{
+  width: 100%;
+  border: 1px solid var(--ion-color-medium);
+  border-radius: 10px;
+  background: #fff;
+  resize: none;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.msg-btn{
+  --padding-start: 0.5em;
+  --padding-end: 0.5em;
+}
+.video{
+    height: 30px;
+    width: 30px;
+    border-radius: 50px;
+}
