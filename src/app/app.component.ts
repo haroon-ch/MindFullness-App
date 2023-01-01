@@ -3,6 +3,7 @@ import OneSignal from "onesignal-cordova-plugin";
 import { App } from '@capacitor/app';
 import { Platform } from '@ionic/angular';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -44,4 +45,5 @@ export class AppComponent {
       console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
     });
   }
+  
 }
